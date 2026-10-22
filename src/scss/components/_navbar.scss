@@ -1,0 +1,213 @@
+@use "../variables/colors" as c;
+
+.hpe-my-learning {
+  header {
+    .nav {
+      padding-right: 0;
+    }
+    .site-branding svg {
+      width: auto;
+      height: 60px;
+    }
+    .dropdown-submenu {
+      position: relative;
+    }
+    .navbar {
+      background: none;
+      border: 0;
+      margin: 10px 0;
+      li {
+        a {
+          color: c.$text-grey;
+          padding: 10px 0;
+          font-size: 16px;
+          font-weight: 100;
+        }
+        &.active a,
+        &:hover > a,
+        &:focus-within > a {
+          color: c.$hpe-green;
+          background-color: transparent;
+          transition: none;
+        }
+        &.open > a,
+        &.open > a:focus {
+          background-color: transparent;
+          @media (min-width: 980px) {
+            background-color: #008c6b;
+            color: c.$white;
+          }
+        }
+      }
+      .dropdown-menu {
+        min-width: 220px;
+        a {
+          padding: 10px;
+        }
+      }
+      .navbar-collapse {
+        margin-top: 10px;
+        padding: 20px 30px;
+        position: absolute;
+        z-index: 300;
+        background-color: c.$white;
+        margin: 0;
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
+        border-top: 0;
+        height: 0;
+        transition: height 0.1s;
+        &.in {
+          height: calc(100vh - 100% - 88px);
+          @media (min-width: 380px) {
+            height: calc(100vh - 100% - 74px);
+          }
+        }
+        .navbar-nav {
+          margin: 0;
+          min-height: 100%;
+          float: none;
+        }
+      }
+    }
+    .navbar-toggle {
+      border: 0;
+      margin-right: 0;
+      padding-right: 0;
+      background-color: transparent !important;
+      display: block;
+      .icon-bar {
+        width: 34px;
+        height: 4px;
+      }
+      &:hover {
+        .icon-bar {
+          background-color: c.$text-grey !important;
+        }
+      }
+    }
+    @media (min-width: 768px) {
+      .navbar-nav {
+        max-width: calc(750px - 30px);
+        margin: 0 auto !important;
+      }
+    }
+    @media (max-width: 991px) {
+      .navbar-header {
+        float: none;
+      }
+      .navbar-default {
+        .navbar-collapse {
+          &.collapse {
+            display: none !important;
+          }
+          &.in {
+            display: block !important;
+            height: calc(100vh - 100% - 74px) !important;
+          }
+        }
+      }
+      .navbar {
+        .open {
+          .dropdown-menu {
+            position: static;
+            box-shadow: none;
+            border: none;
+            float: none;
+            margin-left: 15px;
+          }
+        }
+      }
+      .navbar-nav {
+        & > li {
+          display: block;
+          float: none;
+        }
+      }
+    }
+    @media (min-width: 992px) {
+      .navbar-header {
+        float: left;
+      }
+      .navbar {
+        li {
+          a {
+            padding: 10px;
+          }
+        }
+      }
+      .navbar-default {
+        .navbar-collapse {
+          width: 100%;
+          position: static;
+          transform: unset;
+          padding: 0;
+          margin-top: 10px;
+          a {
+            white-space: pre-wrap;
+          }
+          &.collapse {
+            display: block !important;
+          }
+          &.in {
+            height: auto !important;
+          }
+        }
+      }
+      .navbar-toggle {
+        display: none;
+      }
+      .navbar-nav {
+        max-width: 100%;
+        margin-left: -10px !important;
+        display: flex;
+        align-items: stretch;
+        & > li {
+          display: block;
+          float: left;
+          a {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            padding: 10px 4px;
+            line-height: 1.2;
+            height: 100%;
+            .caret {
+              margin-left: 8px;
+            }
+          }
+          & > a {
+            border-bottom: 1px solid c.$light-grey;
+          }
+          &:not(:last-child) {
+            & > a {
+              margin-right: 8px;
+            }
+          }
+          &:hover {
+            & > a {
+              border-color: c.$light-green;
+            }
+          }
+        }
+      }
+    }
+    @media (min-width: 1200px) {
+      .navbar-nav {
+        & > li {
+          a {
+            font-size: 16px;
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .nav-open {
+    overflow: hidden;
+  }
+}

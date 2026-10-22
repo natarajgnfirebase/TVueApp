@@ -1,0 +1,82 @@
+@use 'variables/colors' as c;
+@use 'mixins/links';
+
+.login-page {
+  &__logo {
+    padding-top: 30px;
+    padding-bottom: 60px;
+
+    a {
+      display: inline-block;
+      width: 128px;
+      height: auto;
+    }
+  }
+
+  &__header {
+    background-color: c.$black;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 40px 16px;
+    margin-bottom: 40px;
+
+    &__content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      color: c.$white;
+
+      h1 {
+        color: c.$white;
+      }
+
+      h1, p {
+        text-shadow: 0 0 8px c.$black;
+      }
+    }
+  }
+
+  &__sign-in-cta {
+    @include links.arrow-button-solid(true);
+  }
+
+  &__banner {
+    margin-bottom: 32px;
+  }
+
+  &__info {
+    margin-bottom: 32px;
+
+    // override
+    h2 {
+      font-family: 'Metric Semibold', Arial, sans-serif;
+      font-size: 22px;
+      text-transform: none;
+      color: c.$black;
+      margin: 0 0 10px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li + li {
+        margin-top: 4px;
+      }
+
+      a {
+        @include links.text-link;
+      }
+    }
+  }
+}
+
+@import 'components/banners';

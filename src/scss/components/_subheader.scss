@@ -1,0 +1,117 @@
+@use '../variables/colors' as c;
+
+@mixin underscore {
+  content: '';
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  background-color: rbga(c.$hpe-green, 0);
+  transition: background-color 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+}
+
+.hpe-subheader {
+  background: c.$black;
+  color: c.$white;
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+
+  @media (min-width: 768px) { padding: 0 50px; }
+  @media (min-width: 992px) { padding: 0 80px; }
+  @media (min-width: 1200px) { padding: 0 100px; }
+  @media (min-width: 1800px) { padding: 0 calc((100% - 1600px) / 2); }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    gap: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: c.$white;
+    min-height: 36px;
+
+    @media (min-width: 768px) {
+      min-height: 48px;
+    }
+
+    @media (min-width: 1600px) {
+      font-size: 16px;
+    }
+
+    li {
+      display: flex;
+      align-items: stretch;
+
+      a {
+        display: flex;
+        align-items: center;
+        color: c.$white;
+        text-decoration: none;
+        position: relative;
+        padding: 4px 0;
+
+        &::after {
+          @include underscore;
+        }
+
+        &:hover::after,
+        &:focus::after {
+          background-color: c.$hpe-green;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  &__language {
+    position: relative;
+    
+    &::after {
+      @include underscore;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+      &::after {
+        background-color: c.$hpe-green;
+      }
+    }
+
+    select {
+      font-weight: 600;
+      appearance: none;
+      border: 0;
+      background: transparent;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>"); // down-facing arrow
+      background-repeat: no-repeat;
+      background-position-x: 100%;
+      background-position-y: center;
+      padding: 0;
+      padding-right: 3rem;
+      outline: none;
+
+      &::-ms-expand {
+        display: none; // remove arrow for ancient IE
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      option {
+        color: initial;
+        white-space: normal;
+        padding: initial;
+        font-family: 'Metric Regular', 'Metric', arial, sans-serif !important;
+      }
+    }
+  }
+}

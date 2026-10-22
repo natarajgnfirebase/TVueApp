@@ -1,0 +1,60 @@
+@use '../mixins/links';
+
+// extends Bootstrap 3 modals
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  @media (min-width: 768px) {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.modal-header {
+  display: flex;
+  gap: 16px;
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  .modal-title {
+    flex: 1;
+  }
+
+  .close {
+    font-size: 32px;
+  }
+
+}
+
+.modal-content {
+  font-size: 16px;
+
+  ul,
+  ol {
+    padding: 0 0 0 20px;
+    margin: 1rem 0;
+
+    li {
+
+    }
+  }
+
+  a {
+    @include links.text-link;
+  }
+}

@@ -1,0 +1,814 @@
+@use 'mixins/links';
+@use 'variables/colors' as c;
+
+/**
+ *  Admin panels structures and styles
+ */
+ #admin-app.geo-app:not(.is-ready) {
+  visibility: hidden;
+}
+.admin-app .main .module {
+  margin-bottom: 40px;
+}
+.admin-app .btn:active{
+  background: #01A982 !important;
+}
+.admin-app .language-selection {
+  margin: 0;
+  font-size: 16px;
+}
+.admin-app .language-selection li {
+  padding: 0;
+}
+.admin-app .language-selection li:first-child {
+  font-weight: 900;
+}
+.admin-app .language-selection li a {
+  background: #fff;
+  padding: 10px;
+}
+.admin-app .language-selection li a.selected {
+  background: #f2f2f2;
+  padding: 10px;
+}
+.admin-app .add-module {
+  margin-bottom: 10px;
+  background: #f2f2f2;
+  padding: 10px 15px;
+  border: 0;
+  font-size: 18px;
+}
+.admin-app .btn-add-module {
+  display: inline-block;
+  padding-top: 8px;
+}
+.admin-app .btn-add-module img {
+  width: 25px;
+  height: auto;
+  margin-top: -2px;
+}
+.admin-app .btn-add-module.sidebar {
+  padding-top: 0;
+}
+.admin-app .btn-add-module:hover {
+  box-shadow: 0;
+}
+
+.admin-app .add-module {
+  .dropdown-menu {
+    a:hover {
+      border: 0;
+    }
+  }
+}
+
+.admin-app .module {
+  &--certification-coach {
+    p {
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+
+  .page-module-wrapper {
+    padding: 20px 15px;
+    margin: 0 !important;
+
+    .page-module-inner {
+
+    }
+  }
+}
+
+.admin-app .main .module h2 {
+  color: #000000;
+}
+.admin-app .main .module .page-module-wrapper {
+  background: #f2f2f2;
+  position: relative;
+}
+
+.admin-app .module .page-module-wrapper.left .col-sm-5 {
+  padding-left: 0;
+}
+.admin-app .module .page-module-wrapper.right .col-sm-5 {
+  padding-right: 0;
+}
+
+.admin-app .main .module .page-module-wrapper .page-module-inner {
+  // padding: 20px 0 0 0;
+
+  // add vertical space between stacked columns
+  .content-row {
+    @media (max-width: 991px) {
+      [class*="col-md"]:nth-child(n + 2) { margin-top: 24px; }
+    }
+  }
+
+  .content {
+    ul, ol {
+      padding-left: 1.2em; // more compact horizontal layout
+    }
+  }
+
+  .content a[href] {
+    @include links.text-link;
+
+    // ignore bold, italic, underline
+    b, strong { font-weight: inherit; }
+    i, em { font-style: normal; }
+    u { text-decoration: none; }
+  }
+}
+
+.admin-app .main .module .handle {
+  cursor: pointer;
+}
+.admin-app .main .module .page-module-wrapper .edit-image-cta {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+}
+.admin-app .main .module .page-module-wrapper.right .edit-image-cta {
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  cursor: pointer;
+}
+
+.admin-app .main .module .page-module-wrapper .edit-image-cta:hover {
+  text-decoration: none;
+  border-bottom: 0;
+}
+.admin-app .main .module .page-module-wrapper .edit-image-cta img {
+  width: 25px;
+  height: auto;
+}
+.admin-app .main .module .module-edit-buttons img {
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+}
+.admin-app .main .module .module-edit-buttons {
+  background: #f2f2f2;
+  float: right;
+  padding: 5px 20px;
+}
+.admin-app img.main {
+  width: 100%;
+  height: auto;
+}
+
+.admin-app .image-wrapper {
+  width: 45%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.admin-app .image-wrapper.right {
+  float: right;
+  margin-left: 20px;
+}
+
+.admin-app .image-wrapper.left {
+  float: left;
+  margin-right: 20px;
+}
+
+.admin-app .image-wrapper.full,
+.admin-app .image-wrapper.full-bottom {
+  width: 100%;
+}
+
+.admin-app .image-wrapper.full img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.admin-app .main .module .page-module-wrapper .content ul,
+.admin-app .main .module .page-module-wrapper .content ol {
+  overflow: hidden;
+}
+
+// themes
+.admin-app .main .module .page-module-wrapper {
+  &.hpe-medium-purple {
+    background-color: c.$hpe-medium-purple;
+    .page-module-inner {
+      h2, .content, .content p {
+        color: c.$white;
+      }
+      .content a[href] {
+        @include links.text-link(c.$white);
+      }
+    }
+  }
+  &.hpe-medium-blue {
+    background-color: c.$hpe-medium-blue;
+    
+  }
+  &.aruba-orange {
+    background-color: c.$aruba-orange;
+  }
+  &.hpe-medium-blue,
+  &.aruba-orange {
+    .content, .content p {
+      color: c.$black;
+    }
+    .content a[href] {
+      @include links.text-link(c.$black);
+    }
+  }
+}
+
+.admin-app .panel.image .edit-image-cta {
+  position: absolute;
+  top: 10px ;
+  right: 10px;
+}
+
+.admin-app .panel.image .edit-image-cta:hover {
+  border: 0;
+}
+
+.admin-app .loading {
+  position: absolute;
+  top: 45%;
+  width: 50%;
+  height: auto;
+  padding: 60px;
+}
+.admin-app .modal-body textarea {
+  width: 100%;
+  height: 200px;
+}
+.admin-app .modal-body input.title,
+.admin-app .modal-body input.slug,
+.admin-app .modal-body select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  flex: 1;
+}
+.admin-app .modal-body .slug-editor {
+  display: flex;
+  align-items: stretch;
+}
+.admin-app .modal-body .slug-editor button {
+  margin-left: 8px;
+  margin-bottom: 5px;
+}
+.admin-app .modal .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+}
+.admin-app #widget-content {
+  height: 200px;
+}
+.admin-app .modal-body .available-images {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.admin-app .modal-body .available-images li {
+  width: 22%;
+  float: left;
+  list-style-type: none;
+  margin-right: 3%;
+  margin-bottom: 8px;
+}
+.admin-app .modal-body .available-images img {
+  width: 100%;
+  cursor: pointer;
+  border: 5px solid #fff;
+}
+.admin-app .modal-body .available-images img:hover {
+  border: 5px solid #01A982;
+}
+.admin-app .modal-body .available-images img.selected {
+  border: 5px solid #01A982;
+}
+@supports (display: flex) {
+  .admin-app .modal-body .available-images {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .admin-app .modal-body .available-images li {
+    float: none;
+    flex: 0 0 22%;
+  }
+}
+.admin-app .modal-body .pagination {
+  clear: both;
+}
+.admin-app .modal-body .pagination li {
+  cursor: pointer;
+  border: 1px solid #f2f2f2;
+  padding: 8px 10px;
+  margin-right: 5px;
+
+}
+.modal#edit-header-content-modal h4 {
+  margin-top: 20px;
+}
+.admin-app .edit-content-btn {
+  position: absolute;
+  top: -80px;
+  right: -20px;
+  display: block;
+}
+.admin-app .preview-mode {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.admin-app .edit-content-btn:hover {
+  border: 0;
+}
+.admin-app .edit-content-btn img {
+  width: 40px;
+  height: auto
+}
+.admin-app.header .intro {
+  text-align: left;
+  padding: 100px 40px;
+  background-size: cover !important;
+}
+
+.admin-app.header .intro h1 {
+  font-weight: 700;
+  font-size: 42px;
+  text-transform: uppercase;
+}
+.admin-app.header .intro .content-wrapper {
+  width: 50%;
+}
+.admin-app.header .intro .content-wrapper a {
+  color: #fff;
+  font-weight: 700;
+}
+.admin-app.header .intro p {
+  width: 100%;
+}
+.admin-app.header .intro::after { display: none; }
+.admin-app.header .intro h3 {
+  color: #fff;
+  font-size: 28px;
+}
+
+.admin-app .hint {
+  font-size: 16px;
+}
+.admin-app label {
+  font-size: 18px;
+}
+.admin-app.widgets {
+  margin-top: 20px;
+}
+
+/** admin dashboard **/
+.geo-page-admin-back .btn {
+  padding: 10px 22px;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  border: none;
+  cursor: pointer;
+  outline: #01A982 solid 0;
+  overflow: hidden;
+  font-size: 20px;
+  line-height: 1.15789474em;
+  font-weight: 200;
+  cursor: pointer;
+  border-radius: 0;
+}
+.geo-page-admin-back .add-geo .inner {
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  display: -ms-flexbox;
+  display: flex;
+}
+.geo-page-admin-back .add-geo .inner input.txt {
+  border: 1px solid #ccc;
+  padding: 8px;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  margin-right: 8px;
+  min-width: 0;
+  max-width: 300px;
+}
+.geo-page-admin-back .add-geo .inner input.btn {
+  white-space: nowrap;
+  padding: 10px;
+  margin-left: auto;
+  -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+}
+
+.geo-page-admin-back .geo-pages {
+  margin-top: 20px;
+}
+.geo-page-admin-back .geo-pages select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+}
+.geo-page-admin-back .countries {
+  margin-bottom: 40px;
+}
+.geo-page-admin-back .countries ul {
+  column-count: 4;
+  list-style-type: none;
+}
+.geo-page-admin-back .geo-pages .item .inner {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.geo-page-admin-back .geo-pages .item .inner .header {
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+.geo-page-admin-back .geo-pages .item .inner .header h2 {
+  color: #333333;
+}
+.geo-page-admin-back .geo-pages .item .inner ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1em;
+  font-size: 85%;
+}
+.geo-page-admin-back .geo-pages .item .inner li {
+  display: inline-block;
+}
+.geo-page-admin-back .geo-pages .item .inner li:nth-child(n+2)::before {
+  content: " | ";
+}
+.geo-page-admin-back .geo-pages .item .inner .url {
+  word-wrap: break-word;
+}
+.geo-page-admin-back .geo-pages .item .inner .btn {
+  display: inline-block;
+  font-size: 14px;
+}
+.geo-page-admin-back .geo-pages .item .inner .btn.btn-remove {
+  display: inline-block;
+  font-size: 14px;
+  background: #d55;
+  color: #fff;
+  font-weight: 200;
+}
+.geo-page-admin-back .geo-pages .item .inner .btn.btn-remove:hover {
+  border: 0;
+}
+.geo-page-admin-back .geo-pages .item .inner > p:last-child {
+  margin-bottom: 0;
+}
+.geo-page-admin-back .geo-page-list .item {
+  margin-bottom: 20px;
+}
+@supports (display: flex) {
+  .geo-page-admin-back .geo-page-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .geo-page-admin-back .geo-page-list .item .inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .geo-page-admin-back .geo-page-list .item .inner > ul {
+    margin-top: auto;
+  }
+}
+.geo-page-admin-back .form-check-label {
+  font-weight: 200;
+}
+.geo-page-admin-back .radio-inline input[type="radio"] {
+  margin-top: 8px;
+}
+.geo-page-admin-back .select {
+
+  padding: 5px;
+}
+
+.geo-page-admin-back.pages h1.headline {
+  font-size: 20px;
+  margin-top: 8px;
+}
+.geo-page-admin-back.pages .label {
+  font-weight: 200;
+}
+
+.hpe-my-learning.lp .module .panel .content { min-height: auto; padding-bottom: 10px; }
+
+/* undo vue2-editor styles */
+.admin-app .quillWrapper .ql-snow.ql-toolbar {
+  padding: 8px;
+}
+
+.admin-app .quillWrapper .ql-snow.ql-toolbar .ql-formats {
+  margin-bottom: 0;
+}
+
+.admin-app .quillWrapper .ql-snow.ql-toolbar button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.admin-app .modal-body {
+  .audiencing-controls {
+    font-size: 16px;
+    margin-top: 16px;
+
+    &__label {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+      border: 0;
+    }
+
+    &__error {
+      padding: 4px 8px;
+      background: #FC61613D;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    legend {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+      border: 0;
+      border-bottom: solid 1px #e5e5e5; 
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      display: flex;
+      font-weight: 400;
+      padding: 0;
+      margin: 0;
+    }
+
+    input[type="checkbox"] {
+      flex: 0 0 16px;
+      margin-top: 4px;
+
+      &[disabled] + label {
+        color: #666666;
+
+        small {
+          display: block;
+
+          &:nth-child(n + 1) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    label {
+      margin-left: 8px;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+  }
+}
+
+.admin-app .preview-mode {
+  background: #f2f2f2;
+
+  fieldset {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  legend {
+    font-weight: 600;
+    margin-bottom: 4px;
+    border: 0; 
+  }
+
+  input[type="radio"] {
+    flex: 0 0 16px;
+    margin: 0;
+  }
+  
+  label {
+    margin: 0 0 0 8px;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__combos {
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-start;
+
+    select {
+      margin-left: 4px;
+      font-size: 16px;
+      max-width: 200px;
+      padding: 4px;
+    }
+  }
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+// for audiencing controls on CMSPageSALanding
+.form-group {
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    legend {
+      font-weight: 700;
+      margin-bottom: 5px;
+      display: inline-block;
+      border: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: flex;
+        margin-bottom: 4px;
+      }
+    }
+
+    input[type="checkbox"] {
+      flex: 0 0 20px;
+      margin-top: 6px;
+
+      & + label {
+        margin: 0 0 0 4px;
+        line-height: 1.2;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.geo-page-table {
+  width: 100%;
+  table-layout: fixed;
+  margin: 2rem 0;
+
+  thead {
+    th {
+      border-bottom: solid 2px #cccccc;
+      padding: 4px 8px;
+      vertical-align: top;
+    }
+  }
+  
+  tbody {
+    width: 100%;
+
+    tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+
+    td {
+      border-bottom: solid 1px #cccccc;
+      padding: 8px;
+      vertical-align: top;
+
+      h2 {
+        // margin: 0 0 4px;
+        margin: 0;
+        line-height: 1;
+        text-transform: none;
+      }
+
+      // URL
+      small {
+        display: inline-flex;
+        align-items: center;
+        line-height: 1;
+        gap: 10px;
+        font-size: 14px;
+        width: 100%;
+
+        a {
+          border-bottom: solid 1px transparent;
+          position: relative;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        // copy button
+        button {
+          appearance: none;
+          margin: 0;
+          border: solid 1px #00000033;
+          padding: 3px 5px;
+          font-size: 13px;
+          line-height: 1;
+          border-radius: 3px;
+
+          &:hover {
+            border-color: c.$hpe-green;
+            background: c.$hpe-green;
+            color: c.$white;
+          }
+        }
+      }
+
+      &:last-child {
+        text-align: right;
+        vertical-align: middle;
+        white-space: nowrap;
+        
+        .btn {
+          display: inline-block;
+          font-size: 14px;
+          color: #fff;
+          font-weight: 200;
+          border: 0;
+          padding: 8px 10px;
+
+          &.btn-remove {
+            background: #d55;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    border-top: solid 2px #cccccc;
+    border-bottom: solid 1px #cccccc;
+    
+    thead { display: none; }
+    tr {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      td {
+        padding: 12px 8px;
+        text-align: left !important;
+      }
+
+      td:not(:last-child) {
+        border: 0;
+      }
+    }
+  }
+}
+
+.certification-coach-module {
+  font-size: 16px;
+
+  &__recommendations {
+    padding-left: 1.2em;
+  }
+
+  &__progress {
+    @include links.arrow-link;
+    &:hover {
+      border-bottom: 0 !important;
+    }
+  }
+}
+
+@import 'components/spinner';

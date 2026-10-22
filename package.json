@@ -1,0 +1,68 @@
+{
+  "name": "admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "webpack",
+    "watch": "concurrently \"webpack --watch\" \"npm:sass\"",
+    "lint": "vue-cli-service lint",
+    "sass": "sass --watch src/scss:assets/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.10.1",
+    "axios": "^0.21.4",
+    "concurrently": "^6.2.0",
+    "core-js": "^3.6.5",
+    "date-fns": "^2.22.1",
+    "html-to-text": "^7.1.1",
+    "lodash": "^4.17.21",
+    "luxon": "^1.24.1",
+    "quill": "^1.3.7",
+    "slugify": "^1.5.3",
+    "style-loader": "^2.0.0",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.9.2",
+    "vue-template-compiler": "^2.6.11",
+    "vue2-editor": "^2.10.2",
+    "vuedraggable": "^2.24.3"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.13.15",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "esm": "^3.2.25",
+    "image-size": "^1.0.2",
+    "kleur": "^4.1.5",
+    "npm-watch": "^0.11.0",
+    "prompts": "^2.4.2",
+    "sass": "^1.35.1",
+    "webpack": "^5.99.5",
+    "webpack-cli": "^3.3.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "IE 10-11"
+  ]
+}
